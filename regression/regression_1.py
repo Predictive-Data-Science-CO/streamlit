@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.title("admin_2")
+st.title("regression_1")
