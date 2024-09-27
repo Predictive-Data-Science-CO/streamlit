@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from sklearn.datasets import load_wine
 
+# enable dark mode
+plt.style.use('dark_background')
+
 estimators = {
     "Empirical Covariance": EllipticEnvelope(support_fraction=1.0, contamination=0.25),
     "Robust Covariance (Minimum Covariance Determinant)": EllipticEnvelope(
@@ -34,7 +37,7 @@ for color, (name, estimator) in zip(colors, estimators.items()):
     legend_lines.append(mlines.Line2D([], [], color=color, label=name))
 
 
-ax.scatter(X[:, 0], X[:, 1], color="black")
+ax.scatter(X[:, 0], X[:, 1], color="white")
 bbox_args = dict(boxstyle="round", fc="0.8")
 arrow_args = dict(arrowstyle="->")
 ax.annotate(
