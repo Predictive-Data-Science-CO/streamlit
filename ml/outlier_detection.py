@@ -57,3 +57,4 @@ _ = ax.set(
 )
 
 st.pyplot(fig)
+st.table(X)

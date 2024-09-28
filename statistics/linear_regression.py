@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.title("regression_2")
+st.text("ddd")
