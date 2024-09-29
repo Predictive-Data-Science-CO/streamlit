@@ -25,13 +25,17 @@ role = st.session_state.role
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
 settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
 stats_types = st.Page("statistics/stats_types.py", title="Stattistics Types", icon=":material/info:", default=(role == "Statistics"))
-linear_regression = st.Page("statistics/linear_regression.py", title="Linear Regression", icon=":material/info:")
+multiple_regression = st.Page("statistics/multiple_regression.py", title="Multiple Regression", icon=":material/info:")
+logistic_regression = st.Page("statistics/logistic_regression.py", title="Logistic Regression", icon=":material/info:")
+non_parametric_test = st.Page("statistics/non_parametric_test.py", title="Non Parametric Test", icon=":material/info:")
+parametric_test = st.Page("statistics/parametric_test.py", title="Parametric Test", icon=":material/info:")
+simple_regression = st.Page("statistics/simple_regression.py", title="Simple Regression", icon=":material/info:")
 outlier_detection = st.Page("ml/outlier_detection.py", title="Outlier Detection", icon=":material/info:", default=(role == "ML"))
 ml_1 = st.Page("ml/ml_1.py", title="ml 1", icon=":material/info:")
 ml_2 = st.Page("ml/ml_2.py", title="ml 2", icon=":material/info:")
 
 account_pages = [logout_page, settings]
-statistics_pages = [stats_types, linear_regression]
+statistics_pages = [stats_types, logistic_regression, multiple_regression, non_parametric_test, parametric_test, simple_regression]
 ml_pages = [outlier_detection, ml_1, ml_2]
 
 # st.title("Select Project")
