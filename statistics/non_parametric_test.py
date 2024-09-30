@@ -7,6 +7,7 @@ from scipy.stats import mannwhitneyu
 from scipy.stats import wilcoxon
 from scipy.stats import kruskal
 from scipy.stats import friedmanchisquare
+from scipy.stats import spearmanr
 
 st.header("Non-Parametric Test")
 st.markdown("""
@@ -25,7 +26,7 @@ st.markdown("""
             | Chi square test |  | Measuring whether two categorical variables are related to each other|
             """)
 
-CHOICES = {1: "Mann-Whitney U test", 2: "Wilcoxon signed-rank test", 3: "Kruskal-Wallis H Test", 4: "Friedman Test"}
+CHOICES = {1: "Mann-Whitney U test", 2: "Wilcoxon signed-rank test", 3: "Kruskal-Wallis H Test", 4: "Friedman Test", 5: "Spearmans's coefficient"}
 option_key = st.selectbox("Select a test", CHOICES.keys(), format_func=lambda x:CHOICES[ x ])
 option_value =  CHOICES[option_key]
 st.write(f"You selected test: {option_value}")
@@ -40,7 +41,7 @@ st.text("generate two sets of univariate observations")
 code = """
     data1 = 5 * randn(100) + 50
     data2 = 5 * randn(100) + 51
-""" if option_key in (1,2) \
+""" if option_key in (1,2,5) \
     else \
 """
     data1 = 5 * randn(100) + 50
@@ -67,7 +68,9 @@ match option_key:
     case 3:
         stat, p = kruskal(data1, data1, data3)  
     case 4:
-        stat, p = friedmanchisquare(data1, data1, data3)                   
+        stat, p = friedmanchisquare(data1, data1, data3)     
+    case 5:
+        stat, p = spearmanr(data1, data1)                      
     case _:
         "No test selected"
 
@@ -76,10 +79,15 @@ st.text('Statistics=%.3f, p=%.3f' % (stat, p))
 st.text("interpret: alpha = 0.05")
 alpha = 0.05
 if p > alpha:
-    st.text(f"p > {alpha} : Same distribution (fail to reject H0)")
+    if option_key in ({5}):
+        st.text(f"p > {alpha} : Probably independent")
+    else:
+        st.text(f"p > {alpha} : Same distribution (fail to reject H0)")
 else:
-    st.text(f"p <= {alpha} : Different distribution (reject H0)")	
-
+    if option_key in ({5}):
+        st.text(f"p <= {alpha} : Probably dependent")
+    else:
+        st.text(f"p <= {alpha} : Different distribution (reject H0)")	
 
 st.markdown("""
             References    
