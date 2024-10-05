@@ -29,3 +29,6 @@ dataset = read_csv(url, names=names)
 
 # descriptions
 st.text(dataset.describe())
+# class distribution
+st.text(dataset.groupby('class').size())
+
