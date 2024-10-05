@@ -24,7 +24,7 @@ role = st.session_state.role
 
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
 settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
-stats_types = st.Page("statistics/stats_types.py", title="Stattistics Types", icon=":material/info:", default=(role == "Statistics"))
+stats_types = st.Page("statistics/stats_types.py", title="Statistics Types", icon=":material/info:", default=(role == "Statistics"))
 # Statistics
 multiple_regression = st.Page("statistics/multiple_regression.py", title="Multiple Regression", icon=":material/info:")
 logistic_regression = st.Page("statistics/logistic_regression.py", title="Logistic Regression", icon=":material/info:")
