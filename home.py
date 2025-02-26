@@ -34,11 +34,12 @@ simple_regression = st.Page("statistics/simple_regression.py", title="Simple Reg
 #Machine Learning
 linear_regression = st.Page("ml/linear_regression.py", title="Linear Regression", icon=":material/info:")
 model_selection = st.Page("ml/model_selection.py", title="Model Selection", icon=":material/info:")
+monte_carlo = st.Page("ml/monte_carlo.py", title="Monte Carlo Simulation", icon=":material/info:")
 outlier_detection = st.Page("ml/outlier_detection.py", title="Outlier Detection", icon=":material/info:", default=(role == "ML"))
 
 account_pages = [logout_page, settings]
 statistics_pages = [stats_types, logistic_regression, multiple_regression, non_parametric_test, parametric_test, simple_regression]
-ml_pages = [linear_regression, model_selection, outlier_detection]
+ml_pages = [linear_regression, model_selection, monte_carlo, outlier_detection]
 
 # st.title("Select Project")
 # st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
